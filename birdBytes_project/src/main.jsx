@@ -5,16 +5,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
-
 import ErrorPage from "./error-page";
 import Topic from "./routes/week";
-import Root from "./routes/root";
+import Root, { loader as rootLoader} from "./routes/root";
 
+//this is the router
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root/>,
     errorElement: <ErrorPage />,
+    load: rootLoader,
     children: [
       {
         path: "/topics/:topicId",
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
   
 ])
 
+//this is rendering the root
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />

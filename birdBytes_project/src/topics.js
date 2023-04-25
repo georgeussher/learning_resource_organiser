@@ -9,6 +9,7 @@ export async function getTopics(query) {
   if (query) {
     topics = matchSorter(topics, query, { keys: ["name"] });
   }
+  console.log("topics", topics)
   return topics.sort(sortBy("-createdAt"));
 }
 

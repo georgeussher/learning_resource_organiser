@@ -1,6 +1,15 @@
 import { Outlet, Link } from "react-router-dom";
+import { getTopics } from "../topics";
 
+//loading data
+export async function loader() {
+  const topics = await getTopics();
+  return { topics };
+}
+
+//this is rendering on to the page
 export default function Root() {
+
     return (
       <>
         <div id="sidebar">
@@ -31,10 +40,10 @@ export default function Root() {
           <nav>
             <ul>
               <li>
-              <Link to={`topics/1`}>Week</Link>
+              <Link to={`topics/1`}>Week 1</Link>
               </li>
               <li>
-              <Link to={`topics/2`}>Name</Link>
+              <Link to={`topics/2`}>Week 2</Link>
               </li>
             </ul>
           </nav>
