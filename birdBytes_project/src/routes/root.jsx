@@ -1,10 +1,10 @@
-import { Outlet, Link, useLoaderData, Form } from "react-router-dom";
+import { Outlet, Link, useLoaderData, Form, redirect } from "react-router-dom";
 
 import { getTopics, createTopic } from "../topics";
 
 export async function action() {
   const topic = await createTopic();
-  return { topic };
+  return redirect(`/topics/${topic.id}/edit`);
 }
 
 
