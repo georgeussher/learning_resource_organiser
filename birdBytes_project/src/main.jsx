@@ -5,20 +5,24 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
-import Root from "./routes/root";
+
 import ErrorPage from "./error-page";
-import Topic from "./routes/week"
+import Topic from "./routes/week";
+import Root from "./routes/root";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root/>,
-    errorElement: <ErrorPage />
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/topics/:topicId",
+        element: <Topic />
+      },
+    ],
   },
-  {
-    path: "/",
-    element: <Topic />
-  }
+  
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

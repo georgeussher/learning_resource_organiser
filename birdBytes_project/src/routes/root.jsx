@@ -1,3 +1,5 @@
+import { Outlet, Link } from "react-router-dom";
+
 export default function Root() {
     return (
       <>
@@ -29,15 +31,17 @@ export default function Root() {
           <nav>
             <ul>
               <li>
-                <a href={`/contacts/1`}>Main page</a>
+              <Link to={`topics/1`}>Week</Link>
               </li>
               <li>
-                <a href={`/contacts/2`}>Week 1</a>
+              <Link to={`topics/2`}>Name</Link>
               </li>
             </ul>
           </nav>
         </div>
-        <div id="detail"></div>
+        <div id="detail">
+          <Outlet />
+        </div>
       </>
     );
   }
