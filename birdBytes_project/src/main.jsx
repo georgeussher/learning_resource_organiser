@@ -10,6 +10,7 @@ import ErrorPage from "./error-page";
 import Root, { loader as rootLoader, action as rootAction } from "./routes/root";
 import Topic, { loader as topicLoader } from "./routes/week";
 import EditTopic, { action as editAction } from "./routes/edit";
+import { action as destroyAction } from "./routes/destroy";
 
 
 //this is the router
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
         element: <EditTopic />,
         loader: topicLoader,
         action: editAction
-      }
+      },
+      {
+        path: "topics/:topicId/destroy",
+        action: destroyAction,
+      },
     ],
   },
   
