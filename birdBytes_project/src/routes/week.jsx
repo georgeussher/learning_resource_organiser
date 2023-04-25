@@ -12,7 +12,7 @@ const { topic } = useLoaderData();
   // const topic = {
   //   week: "week",
   //   title: "title",
-  //   URL: "url",
+  //   url: "url",
   //   notes: "notes",
   //   favorite: true,
   // };

@@ -300,30 +300,30 @@ i {
   margin: 1rem 0;
 }
 
-#contact-form {
+#topic-form {
   display: flex;
   max-width: 40rem;
   flex-direction: column;
   gap: 1rem;
 }
-#contact-form > p:first-child {
+#topic-form > p:first-child {
   margin: 0;
   padding: 0;
 }
-#contact-form > p:first-child > :nth-child(2) {
+#topic-form > p:first-child > :nth-child(2) {
   margin-right: 1rem;
 }
-#contact-form > p:first-child,
-#contact-form label {
+#topic-form > p:first-child,
+#topic-form label {
   display: flex;
 }
-#contact-form p:first-child span,
-#contact-form label span {
+#topic-form p:first-child span,
+#topic-form label span {
   width: 8rem;
 }
-#contact-form p:first-child input,
-#contact-form label input,
-#contact-form label textarea {
+#topic-form p:first-child input,
+#topic-form label input,
+#topic-form label textarea {
   flex-grow: 2;
 }
 

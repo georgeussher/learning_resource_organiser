@@ -9,6 +9,7 @@ import ErrorPage from "./error-page";
 
 import Root, { loader as rootLoader, action as rootAction } from "./routes/root";
 import Topic, { loader as topicLoader } from "./routes/week";
+import EditTopic from "./routes/edit";
 
 
 //this is the router
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
         element: <Topic />,
         loader: topicLoader
       },
+      {
+        path: "/topics/:topicId/edit",
+        element: <EditTopic />,
+        loader: topicLoader
+      }
     ],
   },
   
