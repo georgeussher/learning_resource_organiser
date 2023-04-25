@@ -34,7 +34,7 @@ export default function EditTopic() {
         <span>Link</span>
         <input
           type="text"
-          name="link"
+          name="url"
           placeholder="https//example.com"
           defaultValue={topic.url}
         />

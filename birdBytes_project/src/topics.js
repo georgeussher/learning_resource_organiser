@@ -7,7 +7,7 @@ export async function getTopics(query) {
   let topics = await localforage.getItem("topics");
   if (!topics) topics = [];
   if (query) {
-    topics = matchSorter(topics, query, { keys: ["week", "title"] });
+    topics = matchSorter(topics, query, { keys: ["week", "title", "url"] });
   }
   return topics.sort(sortBy("title", "-createdAt"));
 }

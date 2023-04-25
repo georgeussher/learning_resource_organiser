@@ -7,15 +7,7 @@ export async function loader({ params }) {
 }
 
 export default function Topic() {
-const { topic } = useLoaderData();
-
-  // const topic = {
-  //   week: "week",
-  //   title: "title",
-  //   url: "url",
-  //   notes: "notes",
-  //   favorite: true,
-  // };
+  const { topic } = useLoaderData();
 
   return (
     <div id="topic">
@@ -30,6 +22,17 @@ const { topic } = useLoaderData();
           )}{" "}
           {/* <Favorite topic={topic} /> */}
         </h1>
+
+        {topic.url && (
+          <p>
+            <a
+              target="_blank"
+              href={`${topic.url}`}
+            >
+              {topic.url}
+            </a>
+          </p>
+        )}
 
         {topic.notes && <p>{topic.notes}</p>}
 
@@ -57,23 +60,3 @@ const { topic } = useLoaderData();
     </div>
   );
 }
-
-// function Favorite({ topic }) {
-//   // yes, this is a `let` for later
-//   let favorite = topic.favorite;
-//   return (
-//     <Form method="post">
-//       <button
-//         name="favorite"
-//         value={favorite ? "false" : "true"}
-//         aria-label={
-//           favorite
-//             ? "Remove from favorites"
-//             : "Add to favorites"
-//         }
-//       >
-//         {favorite ? "★" : "☆"}
-//       </button>
-//     </Form>
-//   );
-// }
