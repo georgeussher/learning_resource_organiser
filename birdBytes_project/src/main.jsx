@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root/>,
     errorElement: <ErrorPage />,
-    load: rootLoader,
+    loader: rootLoader,
     children: [
       {
         path: "/topics/:topicId",
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
   
 ])
 
-//this is rendering the root
+//this is rendering the website
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
