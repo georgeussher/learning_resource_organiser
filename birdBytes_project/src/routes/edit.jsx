@@ -1,4 +1,12 @@
-import { Form, useLoaderData } from "react-router-dom";
+import { Form, useLoaderData, redirect } from "react-router-dom";
+import { updateTopic } from "../topics";
+
+export async function action({ request, params }) {
+    const formData = await request.formData();
+    const updates = Object.fromEntries(formData);
+    await updateTopic(params.topicId, updates);
+    return redirect(`/topics/${params.topicId}`);
+  }
 
 export default function EditTopic() {
   const { topic } = useLoaderData();

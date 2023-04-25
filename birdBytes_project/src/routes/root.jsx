@@ -52,12 +52,12 @@ export default function Root() {
   {topics.map((topic) => (
     <li key={topic.id}>
       <Link to={`topics/${topic.id}`}>
-        {topic.name ? (
+        {topic.title ? (
           <>
-            {topic.name}
+            {topic.title}
           </>
         ) : (
-          <i>No Name</i>
+          <i>No Title</i>
         )}{" "}
         {topic.favorite && <span>★</span>}
       </Link>
