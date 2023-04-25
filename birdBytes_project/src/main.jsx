@@ -11,6 +11,7 @@ import Root, { loader as rootLoader, action as rootAction } from "./routes/root"
 import Topic, { loader as topicLoader } from "./routes/week";
 import EditTopic, { action as editAction } from "./routes/edit";
 import { action as destroyAction } from "./routes/destroy";
+import Index from "./routes/index";
 
 
 //this is the router
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
     loader: rootLoader,
     action: rootAction,
     children: [
+      { index: true, element: <Index /> },
       {
         path: "/topics/:topicId",
         element: <Topic />,
@@ -36,6 +38,7 @@ const router = createBrowserRouter([
       {
         path: "topics/:topicId/destroy",
         action: destroyAction,
+        errorElement: <div>Oops! There was an error.</div>
       },
     ],
   },
