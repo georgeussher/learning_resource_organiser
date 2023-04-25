@@ -1,5 +1,12 @@
-import { Outlet, Link, useLoaderData } from "react-router-dom";
-import { getTopics } from "../topics";
+import { Outlet, Link, useLoaderData, Form } from "react-router-dom";
+
+import { getTopics, createTopic } from "../topics";
+
+export async function action() {
+  const topic = await createTopic();
+  return { topic };
+}
+
 
 //loading data
 export async function loader() {
@@ -34,14 +41,14 @@ export default function Root() {
                 aria-live="polite"
               ></div>
             </form>
-            <form method="post">
-              <button type="submit">New</button>
-            </form>
+            <Form method="post">
+            <button type="submit">New</button>
+          </Form>
           </div>
           <nav>
           {topics.length ? (
 
-<ul>
+  <ul>
   {topics.map((topic) => (
     <li key={topic.id}>
       <Link to={`topics/${topic.id}`}>

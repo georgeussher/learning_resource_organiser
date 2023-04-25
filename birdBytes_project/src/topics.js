@@ -13,7 +13,7 @@ export async function getTopics(query) {
 }
 
 export async function createTopic(name) {
-  // await fakeNetwork();
+  await fakeNetwork();
   let id = Math.random().toString(36).substring(2, 9);
   let topic = { id, name, createdAt: Date.now() };
   let topics = await getTopics();

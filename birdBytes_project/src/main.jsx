@@ -6,8 +6,10 @@ import {
 } from "react-router-dom";
 import './index.css'
 import ErrorPage from "./error-page";
-import Topic from "./routes/week";
-import Root, { loader as rootLoader} from "./routes/root";
+
+import Root, { loader as rootLoader, action as rootAction } from "./routes/root";
+import Topic, { loader as topicLoader } from "./routes/week";
+
 
 //this is the router
 const router = createBrowserRouter([
@@ -16,10 +18,12 @@ const router = createBrowserRouter([
     element: <Root/>,
     errorElement: <ErrorPage />,
     loader: rootLoader,
+    action: rootAction,
     children: [
       {
         path: "/topics/:topicId",
-        element: <Topic />
+        element: <Topic />,
+        loader: topicLoader
       },
     ],
   },
