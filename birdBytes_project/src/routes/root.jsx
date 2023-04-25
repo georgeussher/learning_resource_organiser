@@ -1,4 +1,16 @@
+import { Outlet, Link, useLoaderData } from "react-router-dom";
+import { getTopics } from "../topics";
+
+//loading data
+export async function loader() {
+  const topics = await getTopics();
+  return { topics };
+}
+
+//this is rendering on to the page
 export default function Root() {
+  const { topics } = useLoaderData();
+
     return (
       <>
         <div id="sidebar">
@@ -27,17 +39,34 @@ export default function Root() {
             </form>
           </div>
           <nav>
-            <ul>
-              <li>
-                <a href={`/contacts/1`}>Main page</a>
-              </li>
-              <li>
-                <a href={`/contacts/2`}>Week 1</a>
-              </li>
-            </ul>
+          {topics.length ? (
+
+<ul>
+  {topics.map((topic) => (
+    <li key={topic.id}>
+      <Link to={`topics/${topic.id}`}>
+        {topic.name ? (
+          <>
+            {topic.name}
+          </>
+        ) : (
+          <i>No Name</i>
+        )}{" "}
+        {topic.favorite && <span>★</span>}
+      </Link>
+    </li>
+  ))}
+</ul>
+) : (
+<p>
+  <i>No topics</i>
+</p>
+)}
           </nav>
         </div>
-        <div id="detail"></div>
+        <div id="detail">
+          <Outlet />
+        </div>
       </>
     );
   }

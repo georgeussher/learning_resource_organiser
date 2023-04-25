@@ -2,7 +2,7 @@ import { Form } from "react-router-dom";
 
 export default function Topic() {
   const topic = {
-    week:"week",
+    week: "week",
     title: "title",
     URL: "url",
     notes: "notes",

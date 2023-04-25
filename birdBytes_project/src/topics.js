@@ -7,13 +7,13 @@ export async function getTopics(query) {
   let topics = await localforage.getItem("topics");
   if (!topics) topics = [];
   if (query) {
-    topics = matchSorter(topics, query, { keys: ["name"] });
+    topics = matchSorter(topics, query, { keys: ["week", "title"] });
   }
-  return topics.sort(sortBy("-createdAt"));
+  return topics.sort(sortBy("title", "-createdAt"));
 }
 
 export async function createTopic(name) {
-  await fakeNetwork();
+  // await fakeNetwork();
   let id = Math.random().toString(36).substring(2, 9);
   let topic = { id, name, createdAt: Date.now() };
   let topics = await getTopics();
@@ -23,14 +23,14 @@ export async function createTopic(name) {
 }
 
 export async function getTopic(id) {
-  await fakeNetwork(`topic:${id}`);
+  // await fakeNetwork(`topic:${id}`);
   let topics = await localforage.getItem("topics");
   let topic = topics.find(topic => topic.id === id);
   return topic ?? null;
 }
 
 export async function updateTopic(id, updates) {
-  await fakeNetwork();
+  // await fakeNetwork();
   let topics = await localforage.getItem("topics");
   let topic = topics.find(topic => topic.id === id);
   if (!topic) throw new Error("No topic found for", id);
