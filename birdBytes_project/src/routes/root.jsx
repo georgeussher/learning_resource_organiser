@@ -1,5 +1,5 @@
-import { Outlet, NavLink, useLoaderData, Form, redirect, useNavigation } from "react-router-dom";
-
+import { Outlet, NavLink, useLoaderData, Form, redirect, useNavigation, useSubmit } from "react-router-dom";
+import { useEffect } from "react";
 import { getTopics, createTopic } from "../topics";
 
 export async function action() {
@@ -9,28 +9,39 @@ export async function action() {
 
 
 //loading data
-export async function loader() {
-  const topics = await getTopics();
-  return { topics };
+export async function loader({ request }) {
+  const url = new URL(request.url);
+  const q = url.searchParams.get("q");
+  const topics = await getTopics(q);
+  return { topics, q };
 }
 
 //this is rendering on to the page
 export default function Root() {
-  const { topics } = useLoaderData();
+  const { topics, q } = useLoaderData();
   const navigation = useNavigation();
+  const submit = useSubmit();
+
+  useEffect(() => {
+    document.getElementById("q").value = q;
+  }, [q]);
 
     return (
       <>
         <div id="sidebar">
           <h1>birdBytes</h1>
           <div>
-            <form id="search-form" role="search">
+            <Form id="search-form" role="search">
               <input
                 id="q"
                 aria-label="Search topics"
                 placeholder="Search"
                 type="search"
                 name="q"
+                defaultValue={q}
+                onChange={(event) => {
+                  submit(event.currentTarget.form);
+                }}
               />
               <div
                 id="search-spinner"
@@ -41,7 +52,7 @@ export default function Root() {
                 className="sr-only"
                 aria-live="polite"
               ></div>
-            </form>
+            </Form>
             <Form method="post">
             <button type="submit">New</button>
           </Form>
