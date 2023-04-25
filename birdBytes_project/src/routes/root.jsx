@@ -1,4 +1,4 @@
-import { Outlet, Link, useLoaderData, Form, redirect } from "react-router-dom";
+import { Outlet, NavLink, Link, useLoaderData, Form, redirect } from "react-router-dom";
 
 import { getTopics, createTopic } from "../topics";
 
@@ -51,16 +51,25 @@ export default function Root() {
   <ul>
   {topics.map((topic) => (
     <li key={topic.id}>
-      <Link to={`topics/${topic.id}`}>
-        {topic.title ? (
+      <NavLink
+                    to={`topics/${topic.id}`}
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active"
+                        : isPending
+                        ? "pending"
+                        : ""
+                    }
+                  >
+        {topic.week || topic.title ? (
           <>
-            {topic.title}
+            {topic.week} {topic.title}
           </>
         ) : (
           <i>No Title</i>
         )}{" "}
         {topic.favorite && <span>★</span>}
-      </Link>
+      </NavLink>
     </li>
   ))}
 </ul>
