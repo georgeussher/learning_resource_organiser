@@ -1,5 +1,10 @@
-import { Outlet, Link, useLoaderData } from "react-router-dom";
-import { getTopics } from "../topics";
+import { Outlet, Link, useLoaderData, Form, } from "react-router-dom";
+import { getTopics, createTopic } from "../topics";
+
+export async function action() {
+  const topic = await createTopic();
+  return { topic };
+}
 
 //loading data
 export async function loader() {
@@ -34,9 +39,9 @@ export default function Root() {
                 aria-live="polite"
               ></div>
             </form>
-            <form method="post">
+            <Form method="post">
               <button type="submit">New</button>
-            </form>
+            </Form>
           </div>
           <nav>
           {topics.length ? (
@@ -50,7 +55,7 @@ export default function Root() {
             {topic.name}
           </>
         ) : (
-          <i>No Name</i>
+          <i>No week</i>
         )}{" "}
         {topic.favorite && <span>★</span>}
       </Link>

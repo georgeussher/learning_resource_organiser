@@ -1,13 +1,20 @@
-import { Form } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
+import { getTopics } from "../topics";
+
+export async function loader({ params }) {
+  const topic = await getTopics(params.topicId);
+  return { topic };
+}
 
 export default function Topic() {
-  const topic = {
-    week: "week",
-    title: "title",
-    URL: "url",
-    notes: "notes",
-    favorite: true,
-  };
+  const { topic } = useLoaderData();
+  // const topic = {
+  //   week: "week",
+  //   title: "title",
+  //   URL: "url",
+  //   notes: "notes",
+  //   favorite: true,
+  // };
 
   return (
     <div id="topic">
