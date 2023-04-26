@@ -1,33 +1,42 @@
-import { Outlet, Link, useLoaderData, Form, } from "react-router-dom";
+import { Outlet, NavLink, useLoaderData, Form, redirect, useNavigation } from "react-router-dom";
 import { getTopics, createTopic } from "../topics";
+import { useEffect } from "react";
 
 export async function action() {
   const topic = await createTopic();
-  return { topic };
+  return redirect(`/topics/${topic.id}/edit`);
 }
 
 //loading data
-export async function loader() {
-  const topics = await getTopics();
-  return { topics };
+export async function loader({ request }) {
+  const url = new URL(request.url);
+  const q = url.searchParams.get("q");
+  const topics = await getTopics(q);
+  return { topics, q };
 }
 
 //this is rendering on to the page
 export default function Root() {
-  const { topics } = useLoaderData();
+  const { topics, q } = useLoaderData();
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    document.getElementById("q").value = q;
+  }, [q]);
 
     return (
       <>
         <div id="sidebar">
           <h1>birdBytes</h1>
           <div>
-            <form id="search-form" role="search">
+            <Form id="search-form" role="search">
               <input
                 id="q"
                 aria-label="Search topics"
                 placeholder="Search"
                 type="search"
                 name="q"
+                defaultValue={q}
               />
               <div
                 id="search-spinner"
@@ -38,7 +47,7 @@ export default function Root() {
                 className="sr-only"
                 aria-live="polite"
               ></div>
-            </form>
+            </Form>
             <Form method="post">
               <button type="submit">New</button>
             </Form>
@@ -49,16 +58,25 @@ export default function Root() {
 <ul>
   {topics.map((topic) => (
     <li key={topic.id}>
-      <Link to={`topics/${topic.id}`}>
-        {topic.name ? (
+      <NavLink
+                    to={`topics/${topic.id}`}
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active"
+                        : isPending
+                        ? "pending"
+                        : ""
+                    }
+                  >
+        {topic.week ? (
           <>
-            {topic.name}
+            {topic.week} {topic.title}
           </>
         ) : (
           <i>No week</i>
         )}{" "}
         {topic.favorite && <span>★</span>}
-      </Link>
+      </NavLink>
     </li>
   ))}
 </ul>
@@ -69,7 +87,9 @@ export default function Root() {
 )}
           </nav>
         </div>
-        <div id="detail">
+        <div id="detail" className={
+          navigation.state === "loading" ? "loading" : ""
+        }>
           <Outlet />
         </div>
       </>

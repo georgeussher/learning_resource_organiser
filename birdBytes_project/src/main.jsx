@@ -8,7 +8,9 @@ import './index.css'
 import ErrorPage from "./error-page";
 import Topic, { loader as topicLoader, } from "./routes/week";
 import Root, { loader as rootLoader, action as rootAction } from "./routes/root";
-import EditTopic from "./routes/edit";
+import EditTopic, { action as editAction} from "./routes/edit";
+import { action as destroyAction } from "./routes/destroy";
+import Index from "./routes/index";
 
 //this is the router
 const router = createBrowserRouter([
@@ -19,16 +21,22 @@ const router = createBrowserRouter([
     loader: rootLoader,
     action: rootAction,
     children: [
+      { index: true, element: <Index /> },
       {
         path: "/topics/:topicId",
         element: <Topic />,
         loader: topicLoader,
       },
       {
-        path: "topics/:topicId/edit",
+        path: "/topics/:topicId/edit",
         element: <EditTopic />,
-        loader: topicLoader, 
-      }
+        loader: topicLoader,
+        action: editAction, 
+      },
+      {
+        path: "contacts/:contactId/destroy",
+        action: destroyAction,
+      },
     ],
   },
   

@@ -19,6 +19,7 @@ export async function createTopic(name) {
   let topics = await getTopics();
   topics.unshift(topic);
   await set(topics);
+  console.log("topic", topic)
   return topic;
 }
 

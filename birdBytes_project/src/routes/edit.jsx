@@ -1,7 +1,17 @@
-import { Form, useLoaderData } from "react-router-dom";
+import { Form, useLoaderData, redirect, useNavigate } from "react-router-dom";
+import { updateTopic } from "../topics";
+
+export async function action({ request, params }) {
+  const formData = await request.formData();
+  const updates = Object.fromEntries(formData);
+  await updateTopic(params.topicId, updates);
+  return redirect(`/topics/${params.topicId}`);
+}
+
 
 export default function EditTopic() {
   const { topic } = useLoaderData();
+  const navigate = useNavigate();
 
   return (
     <Form method="post" id="topic-form">
@@ -42,7 +52,9 @@ export default function EditTopic() {
       </label>
       <p>
         <button type="submit">Save</button>
-        <button type="button">Cancel</button>
+        <button type="button" onClick={() => {
+            navigate(-1);
+          }}>Cancel</button>
       </p>
     </Form>
   );
