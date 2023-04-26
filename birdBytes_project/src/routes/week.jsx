@@ -1,8 +1,8 @@
 import { Form, useLoaderData } from "react-router-dom";
-import { getTopics } from "../topics";
+import { getTopic } from "../topics";
 
 export async function loader({ params }) {
-  const topic = await getTopics(params.topicId);
+  const topic = await getTopic(params.topicId);
   return { topic };
 }
 
