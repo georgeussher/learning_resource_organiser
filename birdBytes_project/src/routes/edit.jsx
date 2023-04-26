@@ -2,12 +2,11 @@ import { Form, useLoaderData, redirect, useNavigate } from "react-router-dom";
 import { updateTopic } from "../topics";
 
 export async function action({ request, params }) {
-  const formData = await request.formData();
-  const updates = Object.fromEntries(formData);
-  await updateTopic(params.topicId, updates);
-  return redirect(`/topics/${params.topicId}`);
-}
-
+    const formData = await request.formData();
+    const updates = Object.fromEntries(formData);
+    await updateTopic(params.topicId, updates);
+    return redirect(`/topics/${params.topicId}`);
+  }
 
 export default function EditTopic() {
   const { topic } = useLoaderData();
@@ -16,17 +15,17 @@ export default function EditTopic() {
   return (
     <Form method="post" id="topic-form">
       <p>
-        <span>Week</span>
+        <span>Topic</span>
         <input
-          placeholder="Week number"
-          aria-label="Week number"
+          placeholder="Week"
+          aria-label="Week"
           type="text"
           name="week"
           defaultValue={topic.week}
         />
         <input
-          placeholder="Topic"
-          aria-label="Topic"
+          placeholder="Title"
+          aria-label="Title"
           type="text"
           name="title"
           defaultValue={topic.title}
@@ -35,10 +34,9 @@ export default function EditTopic() {
       <label>
         <span>Link</span>
         <input
-          placeholder="https://example.com"
-          aria-label="link"
           type="text"
           name="url"
+          placeholder="https//example.com"
           defaultValue={topic.url}
         />
       </label>
@@ -52,7 +50,8 @@ export default function EditTopic() {
       </label>
       <p>
         <button type="submit">Save</button>
-        <button type="button" onClick={() => {
+        <button type="button"
+        onClick={() => {
             navigate(-1);
           }}>Cancel</button>
       </p>

@@ -7,19 +7,18 @@ export async function getTopics(query) {
   let topics = await localforage.getItem("topics");
   if (!topics) topics = [];
   if (query) {
-    topics = matchSorter(topics, query, { keys: ["week", "title"] });
+    topics = matchSorter(topics, query, { keys: ["week", "title", "url"] });
   }
   return topics.sort(sortBy("title", "-createdAt"));
 }
 
 export async function createTopic(name) {
-  // await fakeNetwork();
+  await fakeNetwork();
   let id = Math.random().toString(36).substring(2, 9);
   let topic = { id, name, createdAt: Date.now() };
   let topics = await getTopics();
   topics.unshift(topic);
   await set(topics);
-  console.log("topic", topic)
   return topic;
 }
 

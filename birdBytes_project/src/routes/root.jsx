@@ -1,11 +1,12 @@
-import { Outlet, NavLink, useLoaderData, Form, redirect, useNavigation } from "react-router-dom";
-import { getTopics, createTopic } from "../topics";
+import { Outlet, NavLink, useLoaderData, Form, redirect, useNavigation, useSubmit } from "react-router-dom";
 import { useEffect } from "react";
+import { getTopics, createTopic } from "../topics";
 
 export async function action() {
   const topic = await createTopic();
   return redirect(`/topics/${topic.id}/edit`);
 }
+
 
 //loading data
 export async function loader({ request }) {
@@ -19,6 +20,13 @@ export async function loader({ request }) {
 export default function Root() {
   const { topics, q } = useLoaderData();
   const navigation = useNavigation();
+  const submit = useSubmit();
+
+  const searching =
+    navigation.location &&
+    new URLSearchParams(navigation.location.search).has(
+      "q"
+    );
 
   useEffect(() => {
     document.getElementById("q").value = q;
@@ -32,16 +40,23 @@ export default function Root() {
             <Form id="search-form" role="search">
               <input
                 id="q"
+                className={searching ? "loading" : ""}
                 aria-label="Search topics"
                 placeholder="Search"
                 type="search"
                 name="q"
                 defaultValue={q}
+                onChange={(event) => {
+                  const isFirstSearch = q == null;
+                submit(event.currentTarget.form, {
+                  replace: !isFirstSearch,
+                });
+                }}
               />
               <div
                 id="search-spinner"
                 aria-hidden
-                hidden={true}
+                hidden={!searching}
               />
               <div
                 className="sr-only"
@@ -49,13 +64,13 @@ export default function Root() {
               ></div>
             </Form>
             <Form method="post">
-              <button type="submit">New</button>
-            </Form>
+            <button type="submit">New</button>
+          </Form>
           </div>
           <nav>
           {topics.length ? (
 
-<ul>
+  <ul>
   {topics.map((topic) => (
     <li key={topic.id}>
       <NavLink
@@ -68,12 +83,12 @@ export default function Root() {
                         : ""
                     }
                   >
-        {topic.week ? (
+        {topic.week || topic.title ? (
           <>
             {topic.week} {topic.title}
           </>
         ) : (
-          <i>No week</i>
+          <i>No Title</i>
         )}{" "}
         {topic.favorite && <span>★</span>}
       </NavLink>
@@ -87,7 +102,8 @@ export default function Root() {
 )}
           </nav>
         </div>
-        <div id="detail" className={
+        <div id="detail"
+        className={
           navigation.state === "loading" ? "loading" : ""
         }>
           <Outlet />
