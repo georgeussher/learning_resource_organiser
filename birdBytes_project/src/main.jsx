@@ -14,7 +14,7 @@ import { action as destroyAction } from "./routes/destroy";
 import Index from "./routes/index";
 
 
-//this is the router
+//this is the router!
 const router = createBrowserRouter([
   {
     path: "/",
