@@ -54,6 +54,17 @@ export default function Topic() {
             }}
           >
             <button type="submit">Delete</button>
+            
+            <ul>
+              <li>
+                {topic.notes2}
+              </li>
+              <li>
+                {topic.notes3}
+              </li>
+            </ul>
+            
+
           </Form>
         </div>
       </div>

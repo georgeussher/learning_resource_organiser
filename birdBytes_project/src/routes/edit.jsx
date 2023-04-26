@@ -48,6 +48,25 @@ export default function EditTopic() {
           rows={6}
         />
       </label>
+      <span>Topic</span>
+      <label>
+        <span>Notes</span>
+        <textarea
+          name="notes2"
+          defaultValue={topic.notes2}
+          rows={6}
+        />
+      </label>
+      <label>
+        <span>Notes</span>
+        <textarea
+          name="notes3"
+          defaultValue={topic.notes3}
+          rows={6}
+        />
+      </label>
+      <ul>
+      </ul>
       <p>
         <button type="submit">Save</button>
         <button type="button"

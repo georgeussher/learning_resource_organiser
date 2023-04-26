@@ -3,7 +3,7 @@ import { matchSorter } from "match-sorter";
 import sortBy from "sort-by";
 
 export async function getTopics(query) {
-  await fakeNetwork(`getTopics:${query}`);
+  //await fakeNetwork(`getTopics:${query}`);
   let topics = await localforage.getItem("topics");
   if (!topics) topics = [];
   if (query) {
@@ -13,7 +13,7 @@ export async function getTopics(query) {
 }
 
 export async function createTopic(name) {
-  await fakeNetwork();
+  //await fakeNetwork();
   let id = Math.random().toString(36).substring(2, 9);
   let topic = { id, name, createdAt: Date.now() };
   let topics = await getTopics();
