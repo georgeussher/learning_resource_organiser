@@ -12,10 +12,10 @@ export default function Topic() {
   return (
     <div id="topic">
       <div>
-        <h1>
-          {topic.week || topic.title ? (
+        <h1>{topic.week}
+          {/* {topic.week || topic.title ? (
             <>
-              {topic.week} {topic.title}
+              {topic.week} 
             </>
           ) : (
             <i>No title</i>
@@ -23,7 +23,7 @@ export default function Topic() {
           {/* <Favorite topic={topic} /> */}
         </h1>
 
-        {topic.url && (
+        {/* {topic.url && (
           <p>
             <a
               target="_blank"
@@ -34,7 +34,57 @@ export default function Topic() {
           </p>
         )}
 
-        {topic.notes && <p>{topic.notes}</p>}
+        // {topic.notes && <p>{topic.notes}</p>} */}
+
+{/* Topic 1 */}
+<h2>{topic.title1}</h2>
+<p><a href="url">{topic.url1}</a></p>
+<p>{topic.notes1}</p>
+
+{/* Topic 2 */}
+<h2>{topic.title2}</h2>
+<p><a href="url">{topic.url2}</a></p>
+<p>{topic.notes2}</p>
+
+{/* Topic 3 */}
+<h2>{topic.title3}</h2>
+<p><a href="url">{topic.url3}</a></p>
+<p>{topic.notes3}</p>
+
+{/* Topic 4 */}
+<h2>{topic.title4}</h2>
+<p><a href="url">{topic.url4}</a></p>
+<p>{topic.notes4}</p>
+
+{/* Topic 5 */}
+<h2>{topic.title5}</h2>
+<p><a href="url">{topic.url5}</a></p>
+<p>{topic.notes5}</p>
+
+{/* Topic 6 */}
+<h2>{topic.title6}</h2>
+<p><a href="url">{topic.url6}</a></p>
+<p>{topic.notes6}</p>
+
+{/* Topic 7 */}
+<h2>{topic.title7}</h2>
+<p><a href="url">{topic.url7}</a></p>
+<p>{topic.notes7}</p>
+
+{/* Topic 8 */}
+<h2>{topic.title8}</h2>
+<p><a href="url">{topic.url8}</a></p>
+<p>{topic.notes8}</p>
+
+{/* Topic 9 */}
+<h2>{topic.title9}</h2>
+<p><a href="url">{topic.url9}</a></p>
+<p>{topic.notes9}</p>
+
+{/* Topic 10 */}
+<h2>{topic.title10}</h2>
+<p><a href="url">{topic.url10}</a></p>
+<p>{topic.notes10}</p>
 
         <div>
           <Form action="edit">
