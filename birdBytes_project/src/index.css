@@ -161,15 +161,7 @@ form[action$="destroy"] button {
   background-image: none;
 }
 
-#search-spinner {
-  width: 1rem;
-  height: 1rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23000' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M20 4v5h-.582m0 0a8.001 8.001 0 00-15.356 2m15.356-2H15M4 20v-5h.581m0 0a8.003 8.003 0 0015.357-2M4.581 15H9' /%3E%3C/svg%3E");
-  animation: spin 1s infinite linear;
-  position: absolute;
-  left: 0.625rem;
-  top: 0.75rem;
-}
+
 
 @keyframes spin {
   from {
@@ -250,55 +242,7 @@ i {
   transition-delay: 200ms;
 }
 
-#contact {
-  max-width: 40rem;
-  display: flex;
-}
 
-#contact h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
-  line-height: 1.2;
-}
-
-#contact h1 + p {
-  margin: 0;
-}
-
-#contact h1 + p + p {
-  white-space: break-spaces;
-}
-
-#contact h1:focus {
-  outline: none;
-  color: hsl(224, 98%, 58%);
-}
-
-#contact a[href*="twitter"] {
-  display: flex;
-  font-size: 1.5rem;
-  color: #3992ff;
-  text-decoration: none;
-}
-#contact a[href*="twitter"]:hover {
-  text-decoration: underline;
-}
-
-#contact img {
-  width: 12rem;
-  height: 12rem;
-  background: #c8c8c8;
-  margin-right: 2rem;
-  border-radius: 1.5rem;
-  object-fit: cover;
-}
-
-#contact h1 ~ div {
-  display: flex;
-  gap: 0.5rem;
-  margin: 1rem 0;
-}
 
 #topic-form {
   display: flex;
@@ -380,3 +324,63 @@ i {
   justify-content: center;
   width: 100%;
 }
+
+/* #search-spinner {
+  width: 1rem;
+  height: 1rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23000' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M20 4v5h-.582m0 0a8.001 8.001 0 00-15.356 2m15.356-2H15M4 20v-5h.581m0 0a8.003 8.003 0 0015.357-2M4.581 15H9' /%3E%3C/svg%3E");
+  animation: spin 1s infinite linear;
+  position: absolute;
+  left: 0.625rem;
+  top: 0.75rem;
+} */
+
+/* #contact {
+  max-width: 40rem;
+  display: flex;
+}
+
+#contact h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+#contact h1 + p {
+  margin: 0;
+}
+
+#contact h1 + p + p {
+  white-space: break-spaces;
+}
+
+#contact h1:focus {
+  outline: none;
+  color: hsl(224, 98%, 58%);
+}
+
+#contact a[href*="twitter"] {
+  display: flex;
+  font-size: 1.5rem;
+  color: #3992ff;
+  text-decoration: none;
+}
+#contact a[href*="twitter"]:hover {
+  text-decoration: underline;
+}
+
+#contact img {
+  width: 12rem;
+  height: 12rem;
+  background: #c8c8c8;
+  margin-right: 2rem;
+  border-radius: 1.5rem;
+  object-fit: cover;
+}
+
+#contact h1 ~ div {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+} */

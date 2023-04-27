@@ -24,13 +24,13 @@ export default function EditTopic() {
           defaultValue={topic.week}
         />
 
-<p>
+{/* <p>
         <button type="submit">Save</button>
         <button type="button"
         onClick={() => {
             navigate(-1);
           }}>Cancel</button>
-      </p>
+      </p> */}
 
         {/* Topic 1 */}
         <span>Topic</span>
