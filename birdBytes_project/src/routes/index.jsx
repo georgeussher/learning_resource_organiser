@@ -12,7 +12,12 @@ export default function Index() {
         <div>
           <img src={studyosaurus} alt="studyosaurus logo" style={{ width: '90%', marginLeft: '2%' }}/>
         </div>
-        <p className="zero-state" style={{marginRight:'7%'}}>
+        <div id="container" style={{marginRight:'7%', marginBottom:'-6%', marginTop:'10%'}}>
+          <h2 id="about">
+            About
+          </h2>
+        </div>
+        <p className="zero-state" style={{marginRight:'7%', marginTop:'9%'}}>
         Welcome to StudyOsaurus, the ultimate tool for Bootcampers looking to simplify their study routine, avoid overwhelm and achieve academic success. 
         This app provides you with a centralised platform to organise your study resources, view the curriculum and keep track of your progress
         You can easily view all of your study materials in one place.
@@ -22,11 +27,11 @@ export default function Index() {
         The intuitive interface allows you to organise everything in a way that just makes sense. Say goodbye to endless scrolling through emails, 
         folders, and Slack channels - here, you can quickly access everything you need with just a few clicks.
         </p>
-        <p className="zero-state" style={{marginRight:'7%'}}>
+        <p className="zero-state" style={{alignSelf: 'center'}}>
         To get started, select a week in the sidebar and get stuck into the many helpful resources. You can even click the add button within each subject and add your own!
         </p>
         <br />
-        <a href="https://www.schoolofcode.co.uk/" className="zero-state">
+        <a href="https://www.schoolofcode.co.uk/" className="zero-state" style={{marginBottom:'%'}}>
           Click here to learn more
         </a>
     </div>
