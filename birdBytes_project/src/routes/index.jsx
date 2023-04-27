@@ -10,7 +10,7 @@ export default function Index() {
         <img src={soc_logo} alt="SOC logo" style={{ width: '7%' }} />
       </div> 
         <div>
-          <img src={studyosaurus} alt="studyosaurus logo" style={{ width: '45%', marginLeft: '22%', marginBottom: '1%', marginTop: '-7.5%', alignItems: 'center'}}/>
+          <img src={studyosaurus} alt="studyosaurus logo" style={{ width: '45%', marginLeft: '23%', marginBottom: '1%', marginTop: '-7.5%', alignItems: 'center'}}/>
         </div>
         <div id="container" style={{display: 'flex', marginRight:'8%', marginBottom:'-6%', marginTop:'0%', justifyContent: 'center'}}>
           <h2 id="about">
