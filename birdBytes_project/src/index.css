@@ -128,6 +128,7 @@ form[action$="destroy"] button {
   left: 0px;
   top: 0px;
   bottom: 0px;
+ 
 }
 
 #sidebar > * {
@@ -149,10 +150,10 @@ form[action$="destroy"] button {
 }
 
 #sidebar h1::before {
-  background-image: url(./studyosaurus_logo.png);
+  /* background-image: url(./studyosaurus_logo.png);
   
   width: 30px;
-  height: 20px; 
+  height: 20px;  */
   margin-right: 0.5rem;
   position: -webkit-sticky;
   position: sticky;
