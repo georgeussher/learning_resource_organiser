@@ -380,8 +380,8 @@ Can't see if this does anything */
 }
 
 #container {
-  background-color: var(--main-color);
-  color: var(--font-color);
+  background-color: transparent;
+  color: var(--main-color);
   padding: 20px;
   border-radius: 8px;
 }
