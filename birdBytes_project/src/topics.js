@@ -6,8 +6,9 @@ export async function getTopics(query) {
   // await fakeNetwork(`getTopics:${query}`);
   let topics = await localforage.getItem("topics");
   if (!topics) topics = [];
+  let searchQuery = ["week", "title", "title1", "url1", "notes1", "title2", "url2", "notes2", "title3", "url3", "notes3", "title4", "url4", "notes4", "title5", "url5", "notes5", "title6", "url6", "notes6", "title7", "url7", "notes7", "title8", "url8", "notes8", "title9", "url9", "notes9", "title10", "url10", "notes10"];
   if (query) {
-    topics = matchSorter(topics, query, { keys: ["week", "title", "url"] });
+    topics = matchSorter(topics, query, { keys: searchQuery });
   }
   return topics.sort(sortBy("title", "-createdAt"));
 }
