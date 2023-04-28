@@ -16,13 +16,30 @@ export default function EditTopic() {
     <Form method="post" id="topic-form">
       <p>
         <span>Week</span>
-        <input
-          placeholder="Enter the week"
-          aria-label="Week"
-          type="text"
-          name="week"
-          defaultValue={topic.week}
-        />
+        <select
+        id="dropdown"
+        aria-label="Week"
+        name="week"
+        defaultValue={topic.week}>
+  <option value="">Select a week</option>
+  <option value="Week 1">Week 1</option>
+  <option value="Week 2">Week 2</option>
+  <option value="Week 3">Week 3</option>
+  <option value="Week 4">Week 4</option>
+  <option value="Week 5">Week 5</option>
+  <option value="Week 6">Week 6</option>
+  <option value="Week 7">Week 7</option>
+  <option value="Week 8">Week 8</option>
+  <option value="Week 9">Week 9</option>
+  <option value="Week 10">Week 10</option>
+  <option value="Week 11">Week 11</option>
+  <option value="Week 12">Week 12</option>
+  <option value="Week 13">Week 13</option>
+  <option value="Week 14">Week 14</option>
+  <option value="Week 15">Week 15</option>
+  <option value="Week 16">Week 16</option>
+</select>
+
 
 {/* <p>
         <button type="submit">Save</button>

@@ -64,7 +64,7 @@ export default function Root() {
               ></div>
             </Form>
             <Form method="post">
-            <button type="submit">New</button>
+            <button type="submit">Add New</button>
           </Form>
           </div>
           <nav>
@@ -102,6 +102,7 @@ export default function Root() {
 )}
           </nav>
         </div>
+        <div id="header"><p id="hello">Hello</p></div>
         <div id="detail"
         className={
           navigation.state === "loading" ? "loading" : ""
