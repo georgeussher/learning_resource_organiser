@@ -20,6 +20,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
 }
 
 code {
@@ -30,14 +31,25 @@ code {
 html,
 body {
   height: 100%;
-  margin: 0;
+  
   line-height: 1.5;
   color: var(--font-color);
   background-color: var(--background-color);
   margin-left: 215px;
 }
 textarea,
-input,
+input {
+  font-size: 1rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.2), 0 1px 2px hsla(0, 0%, 0%, 0.2);
+  background-color: white;
+  line-height: 1.5;
+  margin: 0.3rem;
+}
+
 button {
   font-size: 1rem;
   font-family: inherit;
@@ -47,8 +59,10 @@ button {
   box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.2), 0 1px 2px hsla(0, 0%, 0%, 0.2);
   background-color: white;
   line-height: 1.5;
-  margin: 0;
+  margin: 0.3rem;
 }
+
+
 button {
   color: var(--background-color);
   font-weight: 500;
@@ -56,6 +70,7 @@ button {
   cursor: pointer;
   transition: all 0.2s ease-in-out; 
   padding: 0.5rem 1rem;
+  margin: 0.3rem;
   /* margin-right: 1rem; */
   
 }
@@ -71,42 +86,33 @@ button:active {
   box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.4);
   transform: translateY(1px);
 }
-/* Can't find anywhere this is used */
-#contact h1 {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-/* Can't find anywhere this is used */
-#contact h1 form {
-  display: flex;
-  align-items: center;
-  margin-top: 0.25rem;
-}
 
-/* Can't find anywhere this is used */
-#contact h1 form button {
-  box-shadow: none;
-  font-size: 1.5rem;
-  font-weight: 400;
-  padding: 0;
-}
-
-/* Can't find anywhere this is used */
-#contact h1 form button[value="true"] {
-  color: #a4a4a4;
-}
-
-/* Can't find anywhere this is used */
-#contact h1 form button[value="true"]:hover,
-#contact h1 form button[value="false"] {
-  color: #eeb004;
-}
 
 /* Can't find anywhere this is used */
 form[action$="destroy"] button {
   color: #f44250;
   background-color: transparent;
+}
+
+/* dropdown menu */
+#dropdown {
+  color: var(--background-color);
+  font-weight: 500;
+  background-color: var(--main-color);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out; 
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  border-radius: 8px;
+}
+
+#dropdown:hover {
+  box-shadow: 0 0px 3px hsla(0, 0%, 0%, 0.6), 0 1px 2px hsla(0, 0%, 0%, 0.2);
+}
+
+#dropdown:active {
+  box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.4);
+  transform: translateY(1px);
 }
 
 /* Can't find anywhere this is used */
@@ -129,7 +135,7 @@ form[action$="destroy"] button {
 }
 
 #sidebar {
-  width: 22rem;
+  width: 23rem;
   background-color: var(--sidebar-color);
   border-right: solid 2px #e3e3e3;
   display: flex;
@@ -173,11 +179,12 @@ form[action$="destroy"] button {
 
 #sidebar > div {
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 0.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #e3e3e3;
+  flex-direction: column;
   
 }
 
@@ -283,7 +290,31 @@ i {
   flex: 1;
   padding: 2rem 4rem;
   width: 100%;
+  margin-top: 18%;
 }
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 23rem;
+  right: 0;
+  background-image: url('./header.png');
+  background-size: cover;
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10%;
+}
+
+#hello {
+  display: none;
+
+}
+
+
+
+
 /* 
 Can't see if this does anything */
 #detail.loading {
@@ -310,10 +341,12 @@ Can't see if this does anything */
 #topic-form > p:first-child,
 #topic-form label {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #topic-form p:first-child span,
 #topic-form label span {
-  width: 8rem;
+  width: 5rem;
 }
 #topic-form p:first-child input,
 #topic-form label input,
@@ -321,38 +354,11 @@ Can't see if this does anything */
   flex-grow: 2;
 }
 
-/* Can't see what this does */
-#contact-form-avatar {
-  margin-right: 2rem;
-}
 
-/* Can't see what this does */
-#contact-form-avatar img {
-  width: 12rem;
-  height: 12rem;
-  background: hsla(0, 0%, 0%, 0.2);
-  border-radius: 1rem;
-}
 
-/* Can't see what this does */
-#contact-form-avatar input {
-  box-sizing: border-box;
-  width: 100%;
-}
 
-/* Can't see what this does */
-#contact-form p:last-child {
-  display: flex;
-  gap: 0.5rem;
-  margin: 0 0 0 8rem;
-}
 
-/* Can't see what this does */
-#contact-form p:last-child button[type="button"] {
-  color: inherit;
-}
-
-/* Can't see what this does */
+/* When a new week is added but no data */
 #zero-state {
   margin: 2rem auto;
   text-align: center;
@@ -443,4 +449,61 @@ Can't see if this does anything */
   display: flex;
   gap: 0.5rem;
   margin: 1rem 0;
+} */
+
+/* Can't see what this does */
+/* #contact-form-avatar img {
+  width: 12rem;
+  height: 12rem;
+  background: hsla(0, 0%, 0%, 0.2);
+  border-radius: 1rem;
+} */
+
+/* Can't see what this does */
+/* #contact-form-avatar input {
+  box-sizing: border-box;
+  width: 100%;
+} */
+
+/* Can't see what this does */
+/* #contact-form p:last-child {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 0 0 8rem;
+} */
+
+/* Can't see what this does */
+/* #contact-form p:last-child button[type="button"] {
+  color: inherit;
+} */
+
+/* Can't see what this does */
+/* #contact-form-avatar img {
+  width: 12rem;
+  height: 12rem;
+  background: hsla(0, 0%, 0%, 0.2);
+  border-radius: 1rem;
+} */
+
+/* Can't see what this does */
+/* #contact-form-avatar input {
+  box-sizing: border-box;
+  width: 100%;
+} */
+
+/* Can't see what this does */
+/* #contact-form p:last-child {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 0 0 8rem;
+} */
+
+/* Can't see what this does */
+/* #contact-form p:last-child button[type="button"] {
+  color: inherit;
+} */
+
+/* Can't see what this does */
+/* #contact-form-avatar {
+  margin-right: 2rem;
 } */

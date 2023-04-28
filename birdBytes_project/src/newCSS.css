@@ -65,7 +65,7 @@ appear in the side bar. */
   birdBytes logo (it's at the bottom currently, without the code, it sits at the top) */
 
   #sidebar {
-    width: 22rem;
+    width: 23rem;
     background-color: #f7f7f7;
     border-right: solid 1px #e3e3e3;
     display: flex;
