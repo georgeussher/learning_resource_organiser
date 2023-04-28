@@ -1,12 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css'
 import ErrorPage from "./error-page";
-
 import Root, { loader as rootLoader, action as rootAction } from "./routes/root";
 import Topic, { loader as topicLoader } from "./routes/week";
 import EditTopic, { action as editAction } from "./routes/edit";
