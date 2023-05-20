@@ -5,4 +5,4 @@ Tech-stack:
 The app was built in React with React router performing the route handling. Styling was done without the use of a UI library- simple CSS.
 
 Run:
-This repo can be cloned down to your local machine using either the HTTP or SSH prococols. It can be run on a local server with 'npm run' in the terminal.
+This repo can be cloned down to your local machine using either the HTTPS or SSH prococols. It can be run on a local server with 'npm run' in the terminal.
