@@ -3,17 +3,18 @@ import { matchSorter } from "match-sorter";
 import sortBy from "sort-by";
 
 export async function getTopics(query) {
-  await fakeNetwork(`getTopics:${query}`);
+  // await fakeNetwork(`getTopics:${query}`);
   let topics = await localforage.getItem("topics");
   if (!topics) topics = [];
+  let searchQuery = ["week", "title", "title1", "notes1", "title2", "notes2", "title3", "notes3", "title4", "notes4", "title5", "notes5", "title6", "notes6", "title7", "notes7", "title8", "notes8", "title9", "notes9", "title10", "notes10"];
   if (query) {
-    topics = matchSorter(topics, query, { keys: ["week", "title", "url"] });
+    topics = matchSorter(topics, query, { keys: searchQuery });
   }
   return topics.sort(sortBy("title", "-createdAt"));
 }
 
 export async function createTopic(name) {
-  await fakeNetwork();
+  // await fakeNetwork();
   let id = Math.random().toString(36).substring(2, 9);
   let topic = { id, name, createdAt: Date.now() };
   let topics = await getTopics();
@@ -55,19 +56,19 @@ function set(topics) {
 }
 
 // fake a cache so we don't slow down stuff we've already seen
-let fakeCache = {};
+// let fakeCache = {};
 
-async function fakeNetwork(key) {
-  if (!key) {
-    fakeCache = {};
-  }
+// async function fakeNetwork(key) {
+//   if (!key) {
+//     fakeCache = {};
+//   }
 
-  if (fakeCache[key]) {
-    return;
-  }
+//   if (fakeCache[key]) {
+//     return;
+//   }
 
-  fakeCache[key] = true;
-  return new Promise(res => {
-    setTimeout(res, Math.random() * 800);
-  });
-}
+//   fakeCache[key] = true;
+//   return new Promise(res => {
+//     setTimeout(res, Math.random() * 800);
+//   });
+// }
