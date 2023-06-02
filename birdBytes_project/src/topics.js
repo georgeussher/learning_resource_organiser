@@ -2,6 +2,7 @@ import localforage from "localforage";
 import { matchSorter } from "match-sorter";
 import sortBy from "sort-by";
 
+//CRUD functions for topics
 export async function getTopics(query) {
   // await fakeNetwork(`getTopics:${query}`);
   let topics = await localforage.getItem("topics");
